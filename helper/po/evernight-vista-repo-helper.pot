@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the evernight-vista-repo-gui package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: evernight-vista-repo-gui 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-11 12:10+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: evernight-vista-repo-helper.cpp:115
+#: evernight-vista-repo-helper.cpp:119
+msgid "Invalid staging directory: "
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:115
+msgid "(empty)"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:127
+msgid "Cannot open staging directory: "
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:142
+#, c-format
+msgid "Skipping non-regular file: %s\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:149
+#, c-format
+msgid "Skipping non-repo file: %s\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:156
+msgid "No repository files to apply."
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:176
+#, c-format
+msgid "Warning: failed to back up %s\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:182
+#, c-format
+msgid "Error: failed to install %s: %s\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:187
+#, c-format
+msgid "Warning: failed to set permissions on %s: %s\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:189
+#, c-format
+msgid "Applied: %s\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:197
+msgid "No repository files were applied."
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:201
+#, c-format
+msgid "Repository configuration updated (%d file(s)).\n"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:216
+msgid "Failed to execute "
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:223
+msgid "Usage: evernight-vista-repo-helper "
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:224
+msgid "<apply|rebuilddb|autoremove|distro-sync|refresh-cache> [args]"
+msgstr ""
+
+#: evernight-vista-repo-helper.cpp:241
+msgid "Unknown subcommand: "
+msgstr ""

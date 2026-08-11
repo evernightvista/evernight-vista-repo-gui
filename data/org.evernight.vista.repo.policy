@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+
+<!--
+  Polkit policy for evernight-vista-repo-gui.
+
+  The GUI itself runs as a normal user (it is NOT launched through pkexec).
+  Each privileged operation is performed by the root helper
+  /usr/libexec/evernight-vista-repo-helper, invoked via pkexec. pkexec picks
+  the action below by matching the helper path (org.freedesktop.policykit.exec.path)
+  together with the first argument (org.freedesktop.policykit.exec.argv1), so every
+  operation shows its own authentication message.
+
+  Install to: /usr/share/polkit-1/actions/org.evernight.vista.repo.policy
+-->
+
+<policyconfig>
+
+  <vendor>Evernight Vista Team</vendor>
+  <vendor_url>https://github.com/evernightvista</vendor_url>
+
+  <action id="org.evernight.vista.repo.apply">
+    <description>Apply repository mirror and enable/disable configuration</description>
+    <description xml:lang="ja">リポジトリミラーを適用し、設定を有効/無効にする</description>
+    <description xml:lang="de">Repository-Mirror anwenden und Konfiguration aktivieren/deaktivieren</description>
+    <description xml:lang="fr">Appliquer le miroir du dépôt et activer/désactiver la configuration</description>
+    <description xml:lang="ko">저장소 미러 적용 및 구성 활성화/비활성화</description>
+    <message>Authentication is required to apply repository configuration changes</message>
+    <message xml:lang="ja">リポジトリ設定の変更を適用するには認証が必要です</message>
+    <message xml:lang="de">Authentifizierung ist erforderlich, um Repository-Konfigurationsänderungen anzuwenden</message>
+    <message xml:lang="fr">Une authentification est requise pour appliquer les modifications de configuration du dépôt</message>
+    <message xml:lang="ko">저장소 구성 변경을 적용하려면 인증이 필요합니다</message>
+    <icon_name>package-x-generic</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/evernight-vista-repo-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">apply</annotate>
+  </action>
+
+  <action id="org.evernight.vista.repo.rebuilddb">
+    <description>Rebuild the RPM database (rpm --rebuilddb)</description>
+    <description xml:lang="ja">RPMデータベースを再構築します（rpm --rebuilddb）</description>
+    <description xml:lang="de">RPM-Datenbank neu aufbauen (rpm --rebuilddb)</description>
+    <description xml:lang="fr">Reconstruire la base de données RPM (rpm --rebuilddb)</description>
+    <description xml:lang="ko">RPM 데이터베이스 재구축 (rpm --rebuilddb)</description>
+    <message>Authentication is required to rebuild the RPM database</message>
+    <message xml:lang="ja">RPMデータベースを再構築するには認証が必要です</message>
+    <message xml:lang="de">Authentifizierung ist erforderlich, um die RPM-Datenbank neu aufzubauen</message>
+    <message xml:lang="fr">Une authentification est requise pour reconstruire la base de données RPM</message>
+    <message xml:lang="ko">RPM 데이터베이스를 재구축하려면 인증이 필요합니다</message>
+    <icon_name>system-software-install</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/evernight-vista-repo-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">rebuilddb</annotate>
+  </action>
+
+  <action id="org.evernight.vista.repo.autoremove">
+    <description>Remove unused packages (dnf autoremove)</description>
+    <description xml:lang="ja">未使用のパッケージを削除します（dnf autoremove）</description>
+    <description xml:lang="de">Nicht verwendete Pakete entfernen (dnf autoremove)</description>
+    <description xml:lang="fr">Supprimer les paquets inutilisés (dnf autoremove)</description>
+    <description xml:lang="ko">사용하지 않는 패키지 제거 (dnf autoremove)</description>
+    <message>Authentication is required to remove unused packages</message>
+    <message xml:lang="ja">未使用のパッケージを削除するには認証が必要です</message>
+    <message xml:lang="de">Authentifizierung ist erforderlich, um nicht verwendete Pakete zu entfernen</message>
+    <message xml:lang="fr">Une authentification est requise pour supprimer les paquets inutilisés</message>
+    <message xml:lang="ko">사용하지 않는 패키지를 제거하려면 인증이 필요합니다</message>
+    <icon_name>edit-clear-all</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/evernight-vista-repo-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">autoremove</annotate>
+  </action>
+
+  <action id="org.evernight.vista.repo.distrosync">
+    <description>Synchronize installed packages to repository versions (dnf distro-sync)</description>
+    <description xml:lang="ja">インストール済みパッケージをリポジトリバージョンに同期します（dnf distro-sync）</description>
+    <description xml:lang="de">Installierte Pakete mit den Repository-Versionen synchronisieren (dnf distro-sync)</description>
+    <description xml:lang="fr">Synchroniser les paquets installés avec les versions du dépôt (dnf distro-sync)</description>
+    <description xml:lang="ko">설치된 패키지를 저장소 버전과 동기화 (dnf distro-sync)</description>
+    <message>Authentication is required to synchronize the distribution</message>
+    <message xml:lang="ja">ディストリビューションを同期するには認証が必要です</message>
+    <message xml:lang="de">Authentifizierung ist erforderlich, um die Distribution zu synchronisieren</message>
+    <message xml:lang="fr">Une authentification est requise pour synchroniser la distribution</message>
+    <message xml:lang="ko">배포판을 동기화하려면 인증이 필요합니다</message>
+    <icon_name>system-software-update</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/evernight-vista-repo-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">distro-sync</annotate>
+  </action>
+
+  <action id="org.evernight.vista.repo.refreshcache">
+    <description>Refresh the DNF package cache (dnf makecache)</description>
+    <description xml:lang="ja">DNFパッケージキャッシュを更新します（dnf makecache）</description>
+    <description xml:lang="de">DNF-Paket-Cache aktualisieren (dnf makecache)</description>
+    <description xml:lang="fr">Rafraîchir le cache des paquets DNF (dnf makecache)</description>
+    <description xml:lang="ko">DNF 패키지 캐시 새로 고침 (dnf makecache)</description>
+    <message>Authentication is required to refresh the package cache</message>
+    <message xml:lang="ja">パッケージキャッシュを更新するには認証が必要です</message>
+    <message xml:lang="de">Authentifizierung ist erforderlich, um den Paket-Cache zu aktualisieren</message>
+    <message xml:lang="fr">Une authentification est requise pour rafraîchir le cache des paquets</message>
+    <message xml:lang="ko">패키지 캐시를 새로 고치려면 인증이 필요합니다</message>
+    <icon_name>view-refresh</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/evernight-vista-repo-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">refresh-cache</annotate>
+  </action>
+
+</policyconfig>

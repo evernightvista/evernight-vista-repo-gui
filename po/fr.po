@@ -1,0 +1,364 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: evernight-vista-repo-gui 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-11 11:50+0800\n"
+"PO-Revision-Date: 2026-08-11 12:10+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: MainWindow.cpp:38 MainWindow.cpp:45
+msgid "Evernight Vista Repository Manager"
+msgstr "Gestionnaire de dépôts Evernight Vista"
+
+#: MainWindow.cpp:49
+msgid ""
+"Each repository can independently select a mirror source. Click 'Apply' to "
+"take effect. Click 'Test Speed' to check the response time of each mirror."
+msgstr ""
+"Chaque dépôt peut sélectionner indépendamment une source miroir. Cliquez sur « Appliquer » pour prendre effet. Cliquez sur « Tester la vitesse » pour vérifier le temps de réponse de chaque miroir."
+
+#: MainWindow.cpp:60
+msgid "Evernight Vista"
+msgstr "Evernight Vista"
+
+#: MainWindow.cpp:62
+msgid "RPM Fusion"
+msgstr "RPM Fusion"
+
+#: MainWindow.cpp:64
+msgid "Terra"
+msgstr "Terra"
+
+#: MainWindow.cpp:73
+msgid "Maintenance"
+msgstr "Maintenance"
+
+#: MainWindow.cpp:78
+msgid "Apply Changes"
+msgstr "Appliquer les modifications"
+
+#: MainWindow.cpp:82
+msgid "Refresh Cache"
+msgstr "Rafraîchir le cache"
+
+#: MainWindow.cpp:86
+msgid "Restore Defaults"
+msgstr "Restaurer les valeurs par défaut"
+
+#: MainWindow.cpp:92
+msgid "Ready"
+msgstr "Prêt"
+
+#: MainWindow.cpp:112
+msgid "%1 Repositories"
+msgstr "%1 dépôts"
+
+#: MainWindow.cpp:121
+msgid "Enable"
+msgstr "Activer"
+
+#: MainWindow.cpp:134
+msgid "Test Speed"
+msgstr "Tester la vitesse"
+
+#: MainWindow.cpp:168
+msgid "No testable mirrors (only baseurl supported)"
+msgstr "Aucun miroir testable (seul baseurl est pris en charge)"
+
+#: MainWindow.cpp:168 MainWindow.cpp:238 MainWindow.cpp:285
+msgid "Info"
+msgstr "Info"
+
+#: MainWindow.cpp:173
+msgid "Speed Testing - %1"
+msgstr "Test de vitesse - %1"
+
+#: MainWindow.cpp:184
+msgid "Close"
+msgstr "Fermer"
+
+#: MainWindow.cpp:200
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: MainWindow.cpp:211
+msgid "%1: 403 (Access Denied)"
+msgstr "%1 : 403 (Accès refusé)"
+
+#: MainWindow.cpp:213
+msgid "%1: Failed"
+msgstr "%1 : Échec"
+
+#: MainWindow.cpp:215
+msgid "%1: %2 ms"
+msgstr "%1 : %2 ms"
+
+#: MainWindow.cpp:238 MainWindow.cpp:285
+msgid "No repositories configured"
+msgstr "Aucun dépôt configuré"
+
+#: MainWindow.cpp:248 MainWindow.cpp:294
+msgid "Failed to prepare repository configuration."
+msgstr "Échec de la préparation de la configuration du dépôt."
+
+#: MainWindow.cpp:248 MainWindow.cpp:294 MainWindow.cpp:473
+msgid "Error"
+msgstr "Erreur"
+
+#: MainWindow.cpp:252
+msgid "Applying configuration..."
+msgstr "Application de la configuration..."
+
+#: MainWindow.cpp:257
+msgid "This will execute 'dnf makecache'. Continue?"
+msgstr "Cela exécutera « dnf makecache ». Continuer ?"
+
+#: MainWindow.cpp:258 MainWindow.cpp:269 MainWindow.cpp:375 MainWindow.cpp:386
+#: MainWindow.cpp:397
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: MainWindow.cpp:259 MainWindow.cpp:270 MainWindow.cpp:376 MainWindow.cpp:387
+#: MainWindow.cpp:398
+msgid "Continue"
+msgstr "Continuer"
+
+#: MainWindow.cpp:260 MainWindow.cpp:271 MainWindow.cpp:377 MainWindow.cpp:388
+#: MainWindow.cpp:399
+msgid "Cancel"
+msgstr "Annuler"
+
+#: MainWindow.cpp:263
+msgid "Refreshing cache..."
+msgstr "Rafraîchissement du cache..."
+
+#: MainWindow.cpp:268
+msgid "This will restore all repositories to default configuration. Continue?"
+msgstr "Cela restaurera tous les dépôts à leur configuration par défaut. Continuer ?"
+
+#: MainWindow.cpp:298
+msgid "Restoring default configuration..."
+msgstr "Restauration de la configuration par défaut..."
+
+#: MainWindow.cpp:307
+msgid ""
+"Perform system maintenance tasks for DNF/RPM. Each action asks for "
+"administrator authentication through polkit."
+msgstr "Effectue des tâches de maintenance système pour DNF/RPM. Chaque action demande une authentification administrateur via polkit."
+
+#: MainWindow.cpp:313
+msgid "Repair RPM Database"
+msgstr "Réparer la base de données RPM"
+
+#: MainWindow.cpp:317
+msgid "Clean Unused Packages (autoremove)"
+msgstr "Nettoyer les paquets inutilisés (autoremove)"
+
+#: MainWindow.cpp:321
+msgid "Synchronize Distribution (distro-sync)"
+msgstr "Synchroniser la distribution (distro-sync)"
+
+#: MainWindow.cpp:374
+msgid "This will rebuild the RPM database using 'rpm --rebuilddb'. Continue?"
+msgstr "Cela reconstruira la base de données RPM avec « rpm --rebuilddb ». Continuer ?"
+
+#: MainWindow.cpp:380
+msgid "Repairing RPM database..."
+msgstr "Réparation de la base de données RPM..."
+
+#: MainWindow.cpp:385
+msgid ""
+"This will remove unnecessary packages via 'dnf autoremove -y'. Continue?"
+msgstr "Cela supprimera les paquets inutiles via « dnf autoremove -y ». Continuer ?"
+
+#: MainWindow.cpp:391
+msgid "Cleaning unused packages..."
+msgstr "Nettoyage des paquets inutilisés..."
+
+#: MainWindow.cpp:396
+msgid ""
+"This will synchronize your system with the repository via 'dnf distro-sync "
+"-y'. Continue?"
+msgstr "Cela synchronisera votre système avec le dépôt via « dnf distro-sync -y ». Continuer ?"
+
+#: MainWindow.cpp:402
+msgid "Synchronizing distribution..."
+msgstr "Synchronisation de la distribution..."
+
+#: MainWindow.cpp:427
+msgid "Authentication was dismissed."
+msgstr "L'authentification a été annulée."
+
+#: MainWindow.cpp:428
+msgid "Canceled"
+msgstr "Annulé"
+
+#: MainWindow.cpp:430
+msgid "Not authorized, or the privileged helper was not found."
+msgstr "Non autorisé, ou l'assistant privilégié est introuvable."
+
+#: MainWindow.cpp:431
+msgid "Authorization failed"
+msgstr "Échec de l'autorisation"
+
+#: MainWindow.cpp:437
+msgid "Repository configuration applied."
+msgstr "Configuration du dépôt appliquée."
+
+#: MainWindow.cpp:438
+msgid "Configuration applied"
+msgstr "Configuration appliquée"
+
+#: MainWindow.cpp:453
+msgid "Failed to apply configuration (exit code %1)."
+msgstr "Échec de l'application de la configuration (code de sortie %1)."
+
+#: MainWindow.cpp:454
+msgid "Failed to apply configuration"
+msgstr "Échec de l'application de la configuration"
+
+#: MainWindow.cpp:459
+msgid "Command completed successfully."
+msgstr "La commande s'est terminée avec succès."
+
+#: MainWindow.cpp:460
+msgid "Task finished"
+msgstr "Tâche terminée"
+
+#: MainWindow.cpp:462
+msgid "Command failed with exit code %1."
+msgstr "La commande a échoué avec le code de sortie %1."
+
+#: MainWindow.cpp:463
+msgid "Task failed"
+msgstr "Tâche échouée"
+
+#: MainWindow.cpp:471
+msgid "Success"
+msgstr "Succès"
+
+#: RepoManager.cpp:325
+msgid "Official (metalink)"
+msgstr "Officiel (metalink)"
+
+#: RepoManager.cpp:326 RepoManager.cpp:359
+msgid "Tsinghua (TUNA)"
+msgstr "Tsinghua (TUNA)"
+
+#: RepoManager.cpp:327 RepoManager.cpp:360
+msgid "University of Science and Technology of China (USTC)"
+msgstr "Université des Sciences et Technologies de Chine (USTC)"
+
+#: RepoManager.cpp:328 RepoManager.cpp:362
+msgid "Alibaba Cloud"
+msgstr "Alibaba Cloud"
+
+#: RepoManager.cpp:329 RepoManager.cpp:361
+msgid "Nanjing University"
+msgstr "Université de Nanjing"
+
+#: RepoManager.cpp:330
+msgid "Jilin University"
+msgstr "Université de Jilin"
+
+#: RepoManager.cpp:331 RepoManager.cpp:363
+msgid "Beijing Foreign Studies University (BFSU)"
+msgstr "Université des Langues Étrangères de Pékin (BFSU)"
+
+#: RepoManager.cpp:332
+msgid "JAIST (Japan)"
+msgstr "JAIST (Japon)"
+
+#: RepoManager.cpp:333
+msgid "Yamagata University (Japan)"
+msgstr "Université de Yamagata (Japon)"
+
+#: RepoManager.cpp:334
+msgid "Kernel.org (USA)"
+msgstr "Kernel.org (États-Unis)"
+
+#: RepoManager.cpp:335
+msgid "Kakao (Korea)"
+msgstr "Kakao (Corée)"
+
+#: RepoManager.cpp:336
+msgid "KAIST (Korea)"
+msgstr "KAIST (Corée)"
+
+#: RepoManager.cpp:342
+msgid "Evernight Vista $releasever - $basearch"
+msgstr "Evernight Vista $releasever - $basearch"
+
+#: RepoManager.cpp:344
+msgid "Evernight Vista $releasever - $basearch - Updates"
+msgstr "Evernight Vista $releasever - $basearch - Mises à jour"
+
+#: RepoManager.cpp:358
+msgid "Official metalink"
+msgstr "metalink officiel"
+
+#: RepoManager.cpp:364
+msgid "Rackspace (USA)"
+msgstr "Rackspace (États-Unis)"
+
+#: RepoManager.cpp:365
+msgid "RIT (USA)"
+msgstr "RIT (États-Unis)"
+
+#: RepoManager.cpp:370
+msgid "RPM Fusion Free"
+msgstr "RPM Fusion Free"
+
+#: RepoManager.cpp:372
+msgid "RPM Fusion Free Updates"
+msgstr "RPM Fusion Free Mises à jour"
+
+#: RepoManager.cpp:374
+msgid "RPM Fusion Nonfree"
+msgstr "RPM Fusion Nonfree"
+
+#: RepoManager.cpp:376
+msgid "RPM Fusion Nonfree Updates"
+msgstr "RPM Fusion Nonfree Mises à jour"
+
+#: RepoManager.cpp:395
+msgid "Fyra Labs Official"
+msgstr "Fyra Labs Officiel"
+
+#: RepoManager.cpp:396
+msgid "Freedif (Germany)"
+msgstr "Freedif (Allemagne)"
+
+#: RepoManager.cpp:397
+msgid "Alebcay (USA)"
+msgstr "Alebcay (États-Unis)"
+
+#: RepoManager.cpp:398
+msgid "June Fish (USA)"
+msgstr "June Fish (États-Unis)"
+
+#: RepoManager.cpp:402
+msgid "Terra Base"
+msgstr "Terra Base"
+
+#: RepoManager.cpp:403
+msgid "Terra Extras"
+msgstr "Terra Extras"
+
+#: RepoManager.cpp:404
+msgid "Terra Mesa"
+msgstr "Terra Mesa"
+
+#: RepoManager.cpp:405
+msgid "Terra NVIDIA"
+msgstr "Terra NVIDIA"
