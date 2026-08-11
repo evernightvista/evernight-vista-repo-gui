@@ -1,16 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (C) 2027 Evernight Vista Team
+# This file is distributed under the same license as the Evernight Vista Repository Manager package.
+# Evernight Vista Team <13278297951@sina.cn>, 2027.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evernight-vista-repo-gui 1.0\n"
+"Project-Id-Version: Evernight Vista Repository Manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-11 11:50+0800\n"
-"PO-Revision-Date: 2026-08-11 12:10+0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: ko <LL@li.org>\n"
+"POT-Creation-Date: 2026-08-11 15:19+0800\n"
+"PO-Revision-Date: 2027-01-01 00:00+0900\n"
+"Last-Translator: Evernight Vista Team <13278297951@sina.cn>\n"
+"Language-Team: Evernight Vista Team <13278297951@sina.cn>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +17,14 @@ msgstr ""
 
 #: MainWindow.cpp:38 MainWindow.cpp:45
 msgid "Evernight Vista Repository Manager"
-msgstr "Evernight Vista 리포지토리 관리자"
+msgstr "Evernight Vista 저장소 관리자"
 
 #: MainWindow.cpp:49
 msgid ""
 "Each repository can independently select a mirror source. Click 'Apply' to "
 "take effect. Click 'Test Speed' to check the response time of each mirror."
 msgstr ""
-"각 리포지토리는 독립적으로 미러 소스를 선택할 수 있습니다. '적용'을 클릭하여 적용합니다. '속도 테스트'를 클릭하여 각 미러의 응답 시간을 확인합니다."
+"각 저장소는 독립적으로 미러 소스를 선택할 수 있습니다. '적용'을 클릭하면 적용됩니다. '속도 테스트'를 클릭하면 각 미러의 응답 시간을 확인할 수 있습니다."
 
 #: MainWindow.cpp:60
 msgid "Evernight Vista"
@@ -57,15 +56,15 @@ msgstr "기본값 복원"
 
 #: MainWindow.cpp:92
 msgid "Ready"
-msgstr "준비"
+msgstr "준비됨"
 
 #: MainWindow.cpp:112
-msgid "%1 Repositories"
-msgstr "%1개 리포지토리"
+msgid "Software repositories for %1"
+msgstr "%1의 소프트웨어 저장소"
 
 #: MainWindow.cpp:121
 msgid "Enable"
-msgstr "활성화"
+msgstr "사용"
 
 #: MainWindow.cpp:134
 msgid "Test Speed"
@@ -73,7 +72,7 @@ msgstr "속도 테스트"
 
 #: MainWindow.cpp:168
 msgid "No testable mirrors (only baseurl supported)"
-msgstr "테스트 가능한 미러 없음 (baseurl만 지원)"
+msgstr "테스트 가능한 미러가 없습니다 (baseurl만 지원됨)"
 
 #: MainWindow.cpp:168 MainWindow.cpp:238 MainWindow.cpp:285
 msgid "Info"
@@ -81,7 +80,7 @@ msgstr "정보"
 
 #: MainWindow.cpp:173
 msgid "Speed Testing - %1"
-msgstr "속도 테스트 중 - %1"
+msgstr "속도 테스트 - %1"
 
 #: MainWindow.cpp:184
 msgid "Close"
@@ -105,11 +104,11 @@ msgstr "%1: %2 밀리초"
 
 #: MainWindow.cpp:238 MainWindow.cpp:285
 msgid "No repositories configured"
-msgstr "구성된 리포지토리 없음"
+msgstr "구성된 저장소가 없습니다"
 
 #: MainWindow.cpp:248 MainWindow.cpp:294
 msgid "Failed to prepare repository configuration."
-msgstr "리포지토리 구성 준비 실패."
+msgstr "저장소 구성을 준비하지 못했습니다."
 
 #: MainWindow.cpp:248 MainWindow.cpp:294 MainWindow.cpp:473
 msgid "Error"
@@ -117,7 +116,7 @@ msgstr "오류"
 
 #: MainWindow.cpp:252
 msgid "Applying configuration..."
-msgstr "구성 적용 중..."
+msgstr "구성을 적용하는 중..."
 
 #: MainWindow.cpp:257
 msgid "This will execute 'dnf makecache'. Continue?"
@@ -140,21 +139,22 @@ msgstr "취소"
 
 #: MainWindow.cpp:263
 msgid "Refreshing cache..."
-msgstr "캐시 새로 고침 중..."
+msgstr "캐시를 새로 고치는 중..."
 
 #: MainWindow.cpp:268
 msgid "This will restore all repositories to default configuration. Continue?"
-msgstr "모든 리포지토리를 기본 구성으로 복원합니다. 계속하시겠습니까?"
+msgstr "모든 저장소를 기본 구성으로 복원합니다. 계속하시겠습니까?"
 
 #: MainWindow.cpp:298
 msgid "Restoring default configuration..."
-msgstr "기본 구성 복원 중..."
+msgstr "기본 구성을 복원하는 중..."
 
 #: MainWindow.cpp:307
 msgid ""
 "Perform system maintenance tasks for DNF/RPM. Each action asks for "
 "administrator authentication through polkit."
-msgstr "DNF/RPM 시스템 유지 관리 작업을 수행합니다. 각 작업은 polkit을 통해 관리자 인증을 요청합니다."
+msgstr ""
+"DNF/RPM 시스템 유지 관리 작업을 수행합니다. 각 작업은 polkit을 통해 관리자 인증을 요청합니다."
 
 #: MainWindow.cpp:313
 msgid "Repair RPM Database"
@@ -170,30 +170,30 @@ msgstr "배포판 동기화 (distro-sync)"
 
 #: MainWindow.cpp:374
 msgid "This will rebuild the RPM database using 'rpm --rebuilddb'. Continue?"
-msgstr "'rpm --rebuilddb'를 사용하여 RPM 데이터베이스를 다시 빌드합니다. 계속하시겠습니까?"
+msgstr "'rpm --rebuilddb'를 사용하여 RPM 데이터베이스를 재구축합니다. 계속하시겠습니까?"
 
 #: MainWindow.cpp:380
 msgid "Repairing RPM database..."
-msgstr "RPM 데이터베이스 복구 중..."
+msgstr "RPM 데이터베이스를 복구하는 중..."
 
 #: MainWindow.cpp:385
 msgid ""
 "This will remove unnecessary packages via 'dnf autoremove -y'. Continue?"
-msgstr "'dnf autoremove -y'로 불필요한 패키지를 제거합니다. 계속하시겠습니까?"
+msgstr "'dnf autoremove -y'를 통해 불필요한 패키지를 제거합니다. 계속하시겠습니까?"
 
 #: MainWindow.cpp:391
 msgid "Cleaning unused packages..."
-msgstr "사용하지 않는 패키지 정리 중..."
+msgstr "사용하지 않는 패키지를 정리하는 중..."
 
 #: MainWindow.cpp:396
 msgid ""
 "This will synchronize your system with the repository via 'dnf distro-sync "
 "-y'. Continue?"
-msgstr "'dnf distro-sync -y'로 시스템을 리포지토리와 동기화합니다. 계속하시겠습니까?"
+msgstr "'dnf distro-sync -y'를 통해 시스템을 저장소와 동기화합니다. 계속하시겠습니까?"
 
 #: MainWindow.cpp:402
 msgid "Synchronizing distribution..."
-msgstr "배포판 동기화 중..."
+msgstr "배포판을 동기화하는 중..."
 
 #: MainWindow.cpp:427
 msgid "Authentication was dismissed."
@@ -205,15 +205,15 @@ msgstr "취소됨"
 
 #: MainWindow.cpp:430
 msgid "Not authorized, or the privileged helper was not found."
-msgstr "권한이 없거나 권한 있는 도우미를 찾을 수 없습니다."
+msgstr "권한이 없거나 권한 도우미를 찾을 수 없습니다."
 
 #: MainWindow.cpp:431
 msgid "Authorization failed"
-msgstr "인증 실패"
+msgstr "권한 부여 실패"
 
 #: MainWindow.cpp:437
 msgid "Repository configuration applied."
-msgstr "리포지토리 구성이 적용되었습니다."
+msgstr "저장소 구성이 적용되었습니다."
 
 #: MainWindow.cpp:438
 msgid "Configuration applied"
@@ -247,118 +247,118 @@ msgstr "작업 실패"
 msgid "Success"
 msgstr "성공"
 
-#: RepoManager.cpp:325
+#: RepoManager.cpp:376
 msgid "Official (metalink)"
 msgstr "공식 (metalink)"
 
-#: RepoManager.cpp:326 RepoManager.cpp:359
+#: RepoManager.cpp:377 RepoManager.cpp:410
 msgid "Tsinghua (TUNA)"
 msgstr "칭화대학 (TUNA)"
 
-#: RepoManager.cpp:327 RepoManager.cpp:360
+#: RepoManager.cpp:378 RepoManager.cpp:411
 msgid "University of Science and Technology of China (USTC)"
 msgstr "중국과학기술대학 (USTC)"
 
-#: RepoManager.cpp:328 RepoManager.cpp:362
+#: RepoManager.cpp:379 RepoManager.cpp:413
 msgid "Alibaba Cloud"
 msgstr "알리바바 클라우드"
 
-#: RepoManager.cpp:329 RepoManager.cpp:361
+#: RepoManager.cpp:380 RepoManager.cpp:412
 msgid "Nanjing University"
 msgstr "난징대학"
 
-#: RepoManager.cpp:330
+#: RepoManager.cpp:381
 msgid "Jilin University"
 msgstr "지린대학"
 
-#: RepoManager.cpp:331 RepoManager.cpp:363
+#: RepoManager.cpp:382 RepoManager.cpp:414
 msgid "Beijing Foreign Studies University (BFSU)"
 msgstr "북경외국어대학 (BFSU)"
 
-#: RepoManager.cpp:332
+#: RepoManager.cpp:383
 msgid "JAIST (Japan)"
 msgstr "JAIST (일본)"
 
-#: RepoManager.cpp:333
+#: RepoManager.cpp:384
 msgid "Yamagata University (Japan)"
 msgstr "야마가타대학 (일본)"
 
-#: RepoManager.cpp:334
+#: RepoManager.cpp:385
 msgid "Kernel.org (USA)"
 msgstr "Kernel.org (미국)"
 
-#: RepoManager.cpp:335
+#: RepoManager.cpp:386
 msgid "Kakao (Korea)"
-msgstr "카카오 (한국)"
+msgstr "Kakao (한국)"
 
-#: RepoManager.cpp:336
+#: RepoManager.cpp:387
 msgid "KAIST (Korea)"
 msgstr "KAIST (한국)"
 
-#: RepoManager.cpp:342
+#: RepoManager.cpp:393
 msgid "Evernight Vista $releasever - $basearch"
 msgstr "Evernight Vista $releasever - $basearch"
 
-#: RepoManager.cpp:344
+#: RepoManager.cpp:395
 msgid "Evernight Vista $releasever - $basearch - Updates"
 msgstr "Evernight Vista $releasever - $basearch - 업데이트"
 
-#: RepoManager.cpp:358
+#: RepoManager.cpp:409
 msgid "Official metalink"
-msgstr "공식 metalink"
+msgstr "공식 메타링크"
 
-#: RepoManager.cpp:364
+#: RepoManager.cpp:415
 msgid "Rackspace (USA)"
 msgstr "Rackspace (미국)"
 
-#: RepoManager.cpp:365
+#: RepoManager.cpp:416
 msgid "RIT (USA)"
 msgstr "RIT (미국)"
 
-#: RepoManager.cpp:370
+#: RepoManager.cpp:421
 msgid "RPM Fusion Free"
 msgstr "RPM Fusion Free"
 
-#: RepoManager.cpp:372
+#: RepoManager.cpp:423
 msgid "RPM Fusion Free Updates"
 msgstr "RPM Fusion Free 업데이트"
 
-#: RepoManager.cpp:374
+#: RepoManager.cpp:425
 msgid "RPM Fusion Nonfree"
 msgstr "RPM Fusion Nonfree"
 
-#: RepoManager.cpp:376
+#: RepoManager.cpp:427
 msgid "RPM Fusion Nonfree Updates"
 msgstr "RPM Fusion Nonfree 업데이트"
 
-#: RepoManager.cpp:395
+#: RepoManager.cpp:446
 msgid "Fyra Labs Official"
 msgstr "Fyra Labs 공식"
 
-#: RepoManager.cpp:396
+#: RepoManager.cpp:447
 msgid "Freedif (Germany)"
 msgstr "Freedif (독일)"
 
-#: RepoManager.cpp:397
+#: RepoManager.cpp:448
 msgid "Alebcay (USA)"
 msgstr "Alebcay (미국)"
 
-#: RepoManager.cpp:398
+#: RepoManager.cpp:449
 msgid "June Fish (USA)"
 msgstr "June Fish (미국)"
 
-#: RepoManager.cpp:402
+#: RepoManager.cpp:453
 msgid "Terra Base"
 msgstr "Terra Base"
 
-#: RepoManager.cpp:403
+#: RepoManager.cpp:454
 msgid "Terra Extras"
 msgstr "Terra Extras"
 
-#: RepoManager.cpp:404
+#: RepoManager.cpp:455
 msgid "Terra Mesa"
 msgstr "Terra Mesa"
 
-#: RepoManager.cpp:405
+#: RepoManager.cpp:456
 msgid "Terra NVIDIA"
 msgstr "Terra NVIDIA"

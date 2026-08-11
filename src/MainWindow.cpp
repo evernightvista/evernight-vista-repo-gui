@@ -109,7 +109,7 @@ QWidget* MainWindow::createSectionPage(const QString &sectionName, const QList<R
     QWidget *page = new QWidget(this);
     QVBoxLayout *layout = new QVBoxLayout(page);
 
-    QLabel *desc = new QLabel(i18n("%1 Repositories", sectionName));
+    QLabel *desc = new QLabel(i18n("Software repositories for %1", sectionName));
     desc->setStyleSheet("color: gray;");
     layout->addWidget(desc);
 

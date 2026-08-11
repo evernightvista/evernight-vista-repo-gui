@@ -142,33 +142,80 @@ bool RepoManager::modifyRepoFile(const QString &filePath, const Mirror &mirror, 
         if (!newMetalink.isEmpty()) lines << newMetalink;
         lines << "";
     } else {
-        bool enabledFound = false, baseurlFound = false, metalinkFound = false;
+        bool enabledFound = false;
+        int baseurlActiveIdx = -1, metalinkActiveIdx = -1;
+        int baseurlCommentedIdx = -1, metalinkCommentedIdx = -1;
+
+        // 识别一行属于哪条指令（enabled/baseurl/metalink），被 '#' 注释的行
+        // 也会被识别并把 isCommented 置为 true，以便后续做注释/取消注释切换。
+        auto directiveOf = [](const QString &line, bool &isCommented) -> QString {
+            QString t = line.trimmed();
+            isCommented = false;
+            if (t.startsWith('#')) {
+                isCommented = true;
+                t = t.mid(1).trimmed();
+            }
+            if (t.startsWith("enabled=")) return QStringLiteral("enabled");
+            if (t.startsWith("baseurl=")) return QStringLiteral("baseurl");
+            if (t.startsWith("metalink=")) return QStringLiteral("metalink");
+            return QString();
+        };
+
         for (int j = sectionStart + 1; j <= sectionEnd; ++j) {
-            QString line = lines[j];
-            if (line.trimmed().startsWith('#'))
-                continue;
-            QString trimmed = line.trimmed();
-            if (trimmed.startsWith("enabled=")) {
-                lines[j] = newEnabled;
-                enabledFound = true;
-            } else if (trimmed.startsWith("baseurl=") && !newBaseurl.isEmpty()) {
-                lines[j] = newBaseurl;
-                baseurlFound = true;
-            } else if (trimmed.startsWith("metalink=") && !newMetalink.isEmpty()) {
-                lines[j] = newMetalink;
-                metalinkFound = true;
+            bool commented = false;
+            QString key = directiveOf(lines[j], commented);
+            if (key == "enabled") {
+                if (!commented) {
+                    lines[j] = newEnabled;
+                    enabledFound = true;
+                }
+            } else if (key == "baseurl") {
+                if (commented) {
+                    if (baseurlCommentedIdx == -1) baseurlCommentedIdx = j;
+                } else {
+                    baseurlActiveIdx = j;
+                }
+            } else if (key == "metalink") {
+                if (commented) {
+                    if (metalinkCommentedIdx == -1) metalinkCommentedIdx = j;
+                } else {
+                    metalinkActiveIdx = j;
+                }
             }
         }
+
+        // baseurl 与 metalink 不能同时生效。evernight-vista / updates / rpmfusion
+        // 等同时提供两种地址的源在切换镜像时，必须激活所选字段并注释掉另一字段：
+        // 切到 metalink 先 #baseurl 再取消注释 metalink；切到 baseurl 则反之。
+        if (!newBaseurl.isEmpty()) {
+            // 选中 baseurl 镜像：写入/取消注释 baseurl，注释掉 metalink
+            if (baseurlActiveIdx != -1)
+                lines[baseurlActiveIdx] = newBaseurl;
+            else if (baseurlCommentedIdx != -1)
+                lines[baseurlCommentedIdx] = newBaseurl;
+            if (metalinkActiveIdx != -1)
+                lines[metalinkActiveIdx] = "#" + lines[metalinkActiveIdx].trimmed();
+        } else if (!newMetalink.isEmpty()) {
+            // 选中 metalink 镜像：先 #baseurl，再取消注释/写入 metalink
+            if (baseurlActiveIdx != -1)
+                lines[baseurlActiveIdx] = "#" + lines[baseurlActiveIdx].trimmed();
+            if (metalinkActiveIdx != -1)
+                lines[metalinkActiveIdx] = newMetalink;
+            else if (metalinkCommentedIdx != -1)
+                lines[metalinkCommentedIdx] = newMetalink;
+        }
+
         int insertPos = sectionEnd + 1;
         if (!enabledFound) {
             lines.insert(insertPos, newEnabled);
             insertPos++;
         }
-        if (!baseurlFound && !newBaseurl.isEmpty()) {
+        // 所选字段在文件里既无活动行也无注释行时（例如全新生成的文件）才补一行。
+        if (!newBaseurl.isEmpty() && baseurlActiveIdx == -1 && baseurlCommentedIdx == -1) {
             lines.insert(insertPos, newBaseurl);
             insertPos++;
         }
-        if (!metalinkFound && !newMetalink.isEmpty()) {
+        if (!newMetalink.isEmpty() && metalinkActiveIdx == -1 && metalinkCommentedIdx == -1) {
             lines.insert(insertPos, newMetalink);
             insertPos++;
         }
@@ -314,15 +361,19 @@ QMap<QString, QList<Repository>> RepoManager::getRepoSections() {
 
     auto fedoraMirrors = [](const QString &repoId) -> QList<Mirror> {
         QString subpath;
+        QString metalinkRepo;
         if (repoId == "evernight-vista") {
             subpath = "releases/$releasever/Everything/$basearch/os/";
+            metalinkRepo = "fedora-$releasever";
         } else if (repoId == "updates") {
             subpath = "updates/$releasever/Everything/$basearch/";
+            metalinkRepo = "updates-released-$releasever";
         } else {
             subpath = "releases/$releasever/Everything/$basearch/os/";
+            metalinkRepo = "fedora-$releasever";
         }
         QList<Mirror> mirrors;
-        mirrors << Mirror{i18n("Official (metalink)"), "", "https://mirrors.fedoraproject.org/metalink?repo=" + repoId + "&arch=$basearch"};
+        mirrors << Mirror{i18n("Official (metalink)"), "", "https://mirrors.fedoraproject.org/metalink?repo=" + metalinkRepo + "&arch=$basearch"};
         mirrors << Mirror{i18n("Tsinghua (TUNA)"), "https://mirrors.tuna.tsinghua.edu.cn/fedora/" + subpath, ""};
         mirrors << Mirror{i18n("University of Science and Technology of China (USTC)"), "https://mirrors.ustc.edu.cn/fedora/" + subpath, ""};
         mirrors << Mirror{i18n("Alibaba Cloud"), "https://mirrors.aliyun.com/fedora/" + subpath, ""};

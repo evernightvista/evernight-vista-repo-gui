@@ -1,16 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (C) 2027 Evernight Vista Team
+# This file is distributed under the same license as the Evernight Vista Repository Manager package.
+# Evernight Vista Team <13278297951@sina.cn>, 2027.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: evernight-vista-repo-gui 1.0\n"
+"Project-Id-Version: Evernight Vista Repository Manager 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-11 11:50+0800\n"
-"PO-Revision-Date: 2026-08-11 12:10+0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: zh_TW <LL@li.org>\n"
+"POT-Creation-Date: 2026-08-11 15:19+0800\n"
+"PO-Revision-Date: 2027-01-01 00:00+0800\n"
+"Last-Translator: Evernight Vista Team <13278297951@sina.cn>\n"
+"Language-Team: Evernight Vista Team <13278297951@sina.cn>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +17,14 @@ msgstr ""
 
 #: MainWindow.cpp:38 MainWindow.cpp:45
 msgid "Evernight Vista Repository Manager"
-msgstr "Evernight Vista 儲存庫管理員"
+msgstr "Evernight Vista 倉庫管理員"
 
 #: MainWindow.cpp:49
 msgid ""
 "Each repository can independently select a mirror source. Click 'Apply' to "
 "take effect. Click 'Test Speed' to check the response time of each mirror."
 msgstr ""
-"每個儲存庫可獨立選擇鏡像來源。點擊「套用」使其生效。點擊「測速」檢查各鏡像的回應時間。"
+"每個倉庫可獨立選擇鏡像源。點擊「套用」生效。點擊「測試速度」可檢查每個鏡像的回應時間。"
 
 #: MainWindow.cpp:60
 msgid "Evernight Vista"
@@ -60,8 +59,8 @@ msgid "Ready"
 msgstr "就緒"
 
 #: MainWindow.cpp:112
-msgid "%1 Repositories"
-msgstr "%1 個儲存庫"
+msgid "Software repositories for %1"
+msgstr "%1 的軟體倉庫"
 
 #: MainWindow.cpp:121
 msgid "Enable"
@@ -69,7 +68,7 @@ msgstr "啟用"
 
 #: MainWindow.cpp:134
 msgid "Test Speed"
-msgstr "測速"
+msgstr "測試速度"
 
 #: MainWindow.cpp:168
 msgid "No testable mirrors (only baseurl supported)"
@@ -81,7 +80,7 @@ msgstr "資訊"
 
 #: MainWindow.cpp:173
 msgid "Speed Testing - %1"
-msgstr "測速中 - %1"
+msgstr "速度測試 - %1"
 
 #: MainWindow.cpp:184
 msgid "Close"
@@ -93,23 +92,23 @@ msgstr "%v / %m"
 
 #: MainWindow.cpp:211
 msgid "%1: 403 (Access Denied)"
-msgstr "%1：403（拒絕存取）"
+msgstr "%1: 403 (拒絕存取)"
 
 #: MainWindow.cpp:213
 msgid "%1: Failed"
-msgstr "%1：失敗"
+msgstr "%1: 失敗"
 
 #: MainWindow.cpp:215
 msgid "%1: %2 ms"
-msgstr "%1：%2 毫秒"
+msgstr "%1: %2 毫秒"
 
 #: MainWindow.cpp:238 MainWindow.cpp:285
 msgid "No repositories configured"
-msgstr "未設定任何儲存庫"
+msgstr "未設定倉庫"
 
 #: MainWindow.cpp:248 MainWindow.cpp:294
 msgid "Failed to prepare repository configuration."
-msgstr "準備儲存庫設定失敗。"
+msgstr "準備倉庫設定失敗。"
 
 #: MainWindow.cpp:248 MainWindow.cpp:294 MainWindow.cpp:473
 msgid "Error"
@@ -117,11 +116,11 @@ msgstr "錯誤"
 
 #: MainWindow.cpp:252
 msgid "Applying configuration..."
-msgstr "正在套用設定……"
+msgstr "正在套用設定..."
 
 #: MainWindow.cpp:257
 msgid "This will execute 'dnf makecache'. Continue?"
-msgstr "這將執行「dnf makecache」。是否繼續？"
+msgstr "這將執行 'dnf makecache'。繼續嗎？"
 
 #: MainWindow.cpp:258 MainWindow.cpp:269 MainWindow.cpp:375 MainWindow.cpp:386
 #: MainWindow.cpp:397
@@ -140,21 +139,22 @@ msgstr "取消"
 
 #: MainWindow.cpp:263
 msgid "Refreshing cache..."
-msgstr "正在重新整理快取……"
+msgstr "正在重新整理快取..."
 
 #: MainWindow.cpp:268
 msgid "This will restore all repositories to default configuration. Continue?"
-msgstr "這將還原所有儲存庫為預設設定。是否繼續？"
+msgstr "這將還原所有倉庫為預設設定。繼續嗎？"
 
 #: MainWindow.cpp:298
 msgid "Restoring default configuration..."
-msgstr "正在還原預設設定……"
+msgstr "正在還原預設設定..."
 
 #: MainWindow.cpp:307
 msgid ""
 "Perform system maintenance tasks for DNF/RPM. Each action asks for "
 "administrator authentication through polkit."
-msgstr "執行 DNF/RPM 的系統維護任務。每項操作都透過 polkit 要求管理員認證。"
+msgstr ""
+"執行 DNF/RPM 系統維護任務。每個操作都會透過 polkit 要求管理員驗證。"
 
 #: MainWindow.cpp:313
 msgid "Repair RPM Database"
@@ -162,42 +162,42 @@ msgstr "修復 RPM 資料庫"
 
 #: MainWindow.cpp:317
 msgid "Clean Unused Packages (autoremove)"
-msgstr "清理未使用的軟體套件（autoremove）"
+msgstr "清理未使用的軟體套件 (autoremove)"
 
 #: MainWindow.cpp:321
 msgid "Synchronize Distribution (distro-sync)"
-msgstr "同步發行版（distro-sync）"
+msgstr "同步發行版 (distro-sync)"
 
 #: MainWindow.cpp:374
 msgid "This will rebuild the RPM database using 'rpm --rebuilddb'. Continue?"
-msgstr "這將使用「rpm --rebuilddb」重建 RPM 資料庫。是否繼續？"
+msgstr "這將使用 'rpm --rebuilddb' 重建 RPM 資料庫。繼續嗎？"
 
 #: MainWindow.cpp:380
 msgid "Repairing RPM database..."
-msgstr "正在修復 RPM 資料庫……"
+msgstr "正在修復 RPM 資料庫..."
 
 #: MainWindow.cpp:385
 msgid ""
 "This will remove unnecessary packages via 'dnf autoremove -y'. Continue?"
-msgstr "這將透過「dnf autoremove -y」移除不必要的軟體套件。是否繼續？"
+msgstr "這將透過 'dnf autoremove -y' 移除不必要的軟體套件。繼續嗎？"
 
 #: MainWindow.cpp:391
 msgid "Cleaning unused packages..."
-msgstr "正在清理未使用的軟體套件……"
+msgstr "正在清理未使用的軟體套件..."
 
 #: MainWindow.cpp:396
 msgid ""
 "This will synchronize your system with the repository via 'dnf distro-sync "
 "-y'. Continue?"
-msgstr "這將透過「dnf distro-sync -y」使您的系統與儲存庫同步。是否繼續？"
+msgstr "這將透過 'dnf distro-sync -y' 將系統與倉庫同步。繼續嗎？"
 
 #: MainWindow.cpp:402
 msgid "Synchronizing distribution..."
-msgstr "正在同步發行版……"
+msgstr "正在同步發行版..."
 
 #: MainWindow.cpp:427
 msgid "Authentication was dismissed."
-msgstr "認證已取消。"
+msgstr "驗證已取消。"
 
 #: MainWindow.cpp:428
 msgid "Canceled"
@@ -205,15 +205,15 @@ msgstr "已取消"
 
 #: MainWindow.cpp:430
 msgid "Not authorized, or the privileged helper was not found."
-msgstr "未經授權，或找不到特權助手。"
+msgstr "未授權，或找不到特權輔助程式。"
 
 #: MainWindow.cpp:431
 msgid "Authorization failed"
-msgstr "認證失敗"
+msgstr "授權失敗"
 
 #: MainWindow.cpp:437
 msgid "Repository configuration applied."
-msgstr "儲存庫設定已套用。"
+msgstr "倉庫設定已套用。"
 
 #: MainWindow.cpp:438
 msgid "Configuration applied"
@@ -221,7 +221,7 @@ msgstr "設定已套用"
 
 #: MainWindow.cpp:453
 msgid "Failed to apply configuration (exit code %1)."
-msgstr "套用設定失敗（退出代碼 %1）。"
+msgstr "套用設定失敗 (退出碼 %1)。"
 
 #: MainWindow.cpp:454
 msgid "Failed to apply configuration"
@@ -229,136 +229,136 @@ msgstr "套用設定失敗"
 
 #: MainWindow.cpp:459
 msgid "Command completed successfully."
-msgstr "指令執行成功。"
+msgstr "命令成功完成。"
 
 #: MainWindow.cpp:460
 msgid "Task finished"
-msgstr "任務完成"
+msgstr "工作完成"
 
 #: MainWindow.cpp:462
 msgid "Command failed with exit code %1."
-msgstr "指令執行失敗，退出代碼 %1。"
+msgstr "命令失敗，退出碼 %1。"
 
 #: MainWindow.cpp:463
 msgid "Task failed"
-msgstr "任務失敗"
+msgstr "工作失敗"
 
 #: MainWindow.cpp:471
 msgid "Success"
 msgstr "成功"
 
-#: RepoManager.cpp:325
+#: RepoManager.cpp:376
 msgid "Official (metalink)"
-msgstr "官方（metalink）"
+msgstr "官方 (metalink)"
 
-#: RepoManager.cpp:326 RepoManager.cpp:359
+#: RepoManager.cpp:377 RepoManager.cpp:410
 msgid "Tsinghua (TUNA)"
-msgstr "清華大學（TUNA）"
+msgstr "清華大學 (TUNA)"
 
-#: RepoManager.cpp:327 RepoManager.cpp:360
+#: RepoManager.cpp:378 RepoManager.cpp:411
 msgid "University of Science and Technology of China (USTC)"
-msgstr "中國科學技術大學（USTC）"
+msgstr "中國科學技術大學 (USTC)"
 
-#: RepoManager.cpp:328 RepoManager.cpp:362
+#: RepoManager.cpp:379 RepoManager.cpp:413
 msgid "Alibaba Cloud"
 msgstr "阿里雲"
 
-#: RepoManager.cpp:329 RepoManager.cpp:361
+#: RepoManager.cpp:380 RepoManager.cpp:412
 msgid "Nanjing University"
 msgstr "南京大學"
 
-#: RepoManager.cpp:330
+#: RepoManager.cpp:381
 msgid "Jilin University"
 msgstr "吉林大學"
 
-#: RepoManager.cpp:331 RepoManager.cpp:363
+#: RepoManager.cpp:382 RepoManager.cpp:414
 msgid "Beijing Foreign Studies University (BFSU)"
-msgstr "北京外國語大學（BFSU）"
+msgstr "北京外國語大學 (BFSU)"
 
-#: RepoManager.cpp:332
+#: RepoManager.cpp:383
 msgid "JAIST (Japan)"
-msgstr "JAIST（日本）"
+msgstr "JAIST (日本)"
 
-#: RepoManager.cpp:333
+#: RepoManager.cpp:384
 msgid "Yamagata University (Japan)"
-msgstr "山形大學（日本）"
+msgstr "山形大學 (日本)"
 
-#: RepoManager.cpp:334
+#: RepoManager.cpp:385
 msgid "Kernel.org (USA)"
-msgstr "Kernel.org（美國）"
+msgstr "Kernel.org (美國)"
 
-#: RepoManager.cpp:335
+#: RepoManager.cpp:386
 msgid "Kakao (Korea)"
-msgstr "Kakao（韓國）"
+msgstr "Kakao (韓國)"
 
-#: RepoManager.cpp:336
+#: RepoManager.cpp:387
 msgid "KAIST (Korea)"
-msgstr "KAIST（韓國）"
+msgstr "KAIST (韓國)"
 
-#: RepoManager.cpp:342
+#: RepoManager.cpp:393
 msgid "Evernight Vista $releasever - $basearch"
 msgstr "Evernight Vista $releasever - $basearch"
 
-#: RepoManager.cpp:344
+#: RepoManager.cpp:395
 msgid "Evernight Vista $releasever - $basearch - Updates"
 msgstr "Evernight Vista $releasever - $basearch - 更新"
 
-#: RepoManager.cpp:358
+#: RepoManager.cpp:409
 msgid "Official metalink"
 msgstr "官方 metalink"
 
-#: RepoManager.cpp:364
+#: RepoManager.cpp:415
 msgid "Rackspace (USA)"
-msgstr "Rackspace（美國）"
+msgstr "Rackspace (美國)"
 
-#: RepoManager.cpp:365
+#: RepoManager.cpp:416
 msgid "RIT (USA)"
-msgstr "RIT（美國）"
+msgstr "RIT (美國)"
 
-#: RepoManager.cpp:370
+#: RepoManager.cpp:421
 msgid "RPM Fusion Free"
 msgstr "RPM Fusion Free"
 
-#: RepoManager.cpp:372
+#: RepoManager.cpp:423
 msgid "RPM Fusion Free Updates"
 msgstr "RPM Fusion Free 更新"
 
-#: RepoManager.cpp:374
+#: RepoManager.cpp:425
 msgid "RPM Fusion Nonfree"
 msgstr "RPM Fusion Nonfree"
 
-#: RepoManager.cpp:376
+#: RepoManager.cpp:427
 msgid "RPM Fusion Nonfree Updates"
 msgstr "RPM Fusion Nonfree 更新"
 
-#: RepoManager.cpp:395
+#: RepoManager.cpp:446
 msgid "Fyra Labs Official"
 msgstr "Fyra Labs 官方"
 
-#: RepoManager.cpp:396
+#: RepoManager.cpp:447
 msgid "Freedif (Germany)"
-msgstr "Freedif（德國）"
+msgstr "Freedif (德國)"
 
-#: RepoManager.cpp:397
+#: RepoManager.cpp:448
 msgid "Alebcay (USA)"
-msgstr "Alebcay（美國）"
+msgstr "Alebcay (美國)"
 
-#: RepoManager.cpp:398
+#: RepoManager.cpp:449
 msgid "June Fish (USA)"
-msgstr "June Fish（美國）"
+msgstr "June Fish (美國)"
 
-#: RepoManager.cpp:402
+#: RepoManager.cpp:453
 msgid "Terra Base"
 msgstr "Terra Base"
 
-#: RepoManager.cpp:403
+#: RepoManager.cpp:454
 msgid "Terra Extras"
 msgstr "Terra Extras"
 
-#: RepoManager.cpp:404
+#: RepoManager.cpp:455
 msgid "Terra Mesa"
 msgstr "Terra Mesa"
 
-#: RepoManager.cpp:405
+#: RepoManager.cpp:456
 msgid "Terra NVIDIA"
 msgstr "Terra NVIDIA"
