@@ -34,6 +34,7 @@ public:
     bool applyAll(const QMap<QString, QPair<Mirror, bool>> &states);
     bool refreshCache();
     static QMap<QString, bool> loadEnabledStates();
+    static QMap<QString, Mirror> loadMirrorStates();
 
     // Build the desired .repo files in a staging directory (as the normal user)
     // instead of writing /etc/yum.repos.d directly. The root helper installs them.

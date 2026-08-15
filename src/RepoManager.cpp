@@ -356,6 +356,36 @@ QMap<QString, bool> RepoManager::loadEnabledStates() {
     return states;
 }
 
+QMap<QString, Mirror> RepoManager::loadMirrorStates() {
+    QMap<QString, Mirror> states;
+    QDir dir(REPO_DIR);
+    QStringList filters{"*.repo"};
+    dir.setNameFilters(filters);
+    for (const QString &fileName : dir.entryList(QDir::Files)) {
+        QString filePath = dir.absolutePath() + "/" + fileName;
+        QFile file(filePath);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+            continue;
+        QTextStream in(&file);
+        QString currentSection;
+        while (!in.atEnd()) {
+            QString line = in.readLine().trimmed();
+            if (line.startsWith('[') && line.endsWith(']')) {
+                currentSection = line.mid(1, line.length() - 2);
+            } else if (!line.isEmpty() && !line.startsWith('#') && !currentSection.isEmpty()) {
+                // 仅读取未被 '#' 注释的活动行，跳过注释掉的 baseurl/metalink。
+                if (line.startsWith("baseurl=")) {
+                    states[currentSection].baseurl = line.mid(8).trimmed();
+                } else if (line.startsWith("metalink=")) {
+                    states[currentSection].metalink = line.mid(9).trimmed();
+                }
+            }
+        }
+        file.close();
+    }
+    return states;
+}
+
 QMap<QString, QList<Repository>> RepoManager::getRepoSections() {
     QMap<QString, QList<Repository>> sections;
 

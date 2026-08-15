@@ -32,6 +32,32 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
             it.value().first->setChecked(states[id]);
         }
     }
+
+    // 从实际的 .repo 文件中读取当前镜像设置，确保界面展示与实际配置一致。
+    // 若文件中的镜像与已知镜像列表匹配，则将下拉框设为对应项；
+    // 若不匹配（如用户手动编辑过文件），则保持默认值不变。
+    QMap<QString, Mirror> mirrorStates = RepoManager::loadMirrorStates();
+    for (auto it = m_repoControls.begin(); it != m_repoControls.end(); ++it) {
+        QString id = it.key();
+        if (!mirrorStates.contains(id) || !m_repoMap.contains(id))
+            continue;
+        const Mirror &fileMirror = mirrorStates[id];
+        const QList<Mirror> &mirrors = m_repoMap[id].mirrors;
+        int matchIdx = -1;
+        for (int i = 0; i < mirrors.size(); ++i) {
+            const Mirror &m = mirrors[i];
+            if (!m.baseurl.isEmpty() && m.baseurl == fileMirror.baseurl) {
+                matchIdx = i;
+                break;
+            }
+            if (!m.metalink.isEmpty() && m.metalink == fileMirror.metalink) {
+                matchIdx = i;
+                break;
+            }
+        }
+        if (matchIdx >= 0)
+            it.value().second->setCurrentIndex(matchIdx);
+    }
 }
 
 void MainWindow::setupUI() {
