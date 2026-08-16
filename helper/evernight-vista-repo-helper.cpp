@@ -32,8 +32,19 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-static const char *REPO_DIR   = "/etc/yum.repos.d";
-static const char *BACKUP_DIR = "/etc/yum.repos.d/backup";
+// dnf5 将系统仓库目录从 /etc/yum.repos.d 迁移到 /usr/share/dnf5/repos.d。
+// 优先使用新路径；若新路径不存在（旧版系统）则回退到传统路径，保证兼容。
+static std::string detectRepoDir() {
+    struct stat st;
+    if (stat("/usr/share/dnf5/repos.d", &st) == 0 && S_ISDIR(st.st_mode))
+        return "/usr/share/dnf5/repos.d";
+    if (stat("/etc/yum.repos.d", &st) == 0 && S_ISDIR(st.st_mode))
+        return "/etc/yum.repos.d";
+    return "/usr/share/dnf5/repos.d";
+}
+
+static const std::string REPO_DIR   = detectRepoDir();
+static const std::string BACKUP_DIR = REPO_DIR + "/backup";
 static const char *TEXT_DOMAIN = "evernight-vista-repo-gui";
 static const char *LOCALE_DIR  = "/usr/share/locale";
 
@@ -108,7 +119,7 @@ static bool copyFile(const std::string &src, const std::string &dst) {
     return ok;
 }
 
-// 将 GUI 准备好的暂存 .repo 文件安装到 /etc/yum.repos.d，并先备份现有文件。
+// 将 GUI 准备好的暂存 .repo 文件安装到系统仓库目录，并先备份现有文件。
 // 操作完成后删除暂存目录。
 static int applyConfig(const std::string &stageDir) {
     if (stageDir.empty()) {
@@ -120,7 +131,7 @@ static int applyConfig(const std::string &stageDir) {
     }
 
     // 确保备份目录存在。
-    mkdir(BACKUP_DIR, 0755); // 已存在时忽略错误
+    mkdir(BACKUP_DIR.c_str(), 0755); // 已存在时忽略错误
 
     DIR *dir = opendir(stageDir.c_str());
     if (!dir) {
@@ -164,8 +175,8 @@ static int applyConfig(const std::string &stageDir) {
     int applied = 0;
     for (const std::string &name : repoFiles) {
         std::string src = stageDir + "/" + name;
-        std::string dst = std::string(REPO_DIR) + "/" + name;
-        std::string bak = std::string(BACKUP_DIR) + "/" + name;
+        std::string dst = REPO_DIR + "/" + name;
+        std::string bak = BACKUP_DIR + "/" + name;
 
         // 如果目标文件已存在，先备份。
         struct stat dstStat;

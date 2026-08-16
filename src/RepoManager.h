@@ -37,7 +37,7 @@ public:
     static QMap<QString, Mirror> loadMirrorStates();
 
     // Build the desired .repo files in a staging directory (as the normal user)
-    // instead of writing /etc/yum.repos.d directly. The root helper installs them.
+    // instead of writing the system repo directory directly. The root helper installs them.
     bool stageConfig(const QMap<QString, QPair<Mirror, bool>> &states, const QString &stageDir);
 
     static QMap<QString, QList<Repository>> getRepoSections();

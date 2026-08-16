@@ -7,9 +7,21 @@
 #include <QDebug>
 #include <QRegularExpression>
 #include <KLocalizedString>   // 新增
+#include <sys/stat.h>          // detectRepoDir() 使用 stat() 探测仓库目录
 
-const QString RepoManager::REPO_DIR = "/etc/yum.repos.d/";
-const QString RepoManager::BACKUP_DIR = "/etc/yum.repos.d/backup/";
+// dnf5 将系统仓库目录从 /etc/yum.repos.d 迁移到 /usr/share/dnf5/repos.d。
+// 优先使用新路径；若新路径不存在（旧版系统）则回退到传统路径，保证兼容。
+static QString detectRepoDir() {
+    struct stat st;
+    if (stat("/usr/share/dnf5/repos.d", &st) == 0 && S_ISDIR(st.st_mode))
+        return QStringLiteral("/usr/share/dnf5/repos.d");
+    if (stat("/etc/yum.repos.d", &st) == 0 && S_ISDIR(st.st_mode))
+        return QStringLiteral("/etc/yum.repos.d");
+    return QStringLiteral("/usr/share/dnf5/repos.d");
+}
+
+const QString RepoManager::REPO_DIR = detectRepoDir() + QLatin1Char('/');
+const QString RepoManager::BACKUP_DIR = RepoManager::REPO_DIR + QStringLiteral("backup/");
 
 QString RepoManager::repoDir() {
     return REPO_DIR;
